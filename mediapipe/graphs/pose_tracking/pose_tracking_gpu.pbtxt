@@ -7,6 +7,8 @@ input_stream: "input_video"
 output_stream: "output_video"
 # Pose landmarks. (NormalizedLandmarkList)
 output_stream: "pose_landmarks"
+# Pose world landmarks. (In meters)
+output_stream: "pose_world_landmarks"
 
 # Generates side packet to enable segmentation.
 node {
@@ -46,6 +48,7 @@ node {
   input_side_packet: "ENABLE_SEGMENTATION:enable_segmentation"
   input_stream: "IMAGE:throttled_input_video"
   output_stream: "LANDMARKS:pose_landmarks"
+  output_stream: "WORLD_LANDMARKS:pose_world_landmarks"
   output_stream: "SEGMENTATION_MASK:segmentation_mask"
   output_stream: "DETECTION:pose_detection"
   output_stream: "ROI_FROM_LANDMARKS:roi_from_landmarks"
